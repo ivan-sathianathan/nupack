@@ -1,12 +1,12 @@
 class TypeMarkupCalculator
   RATES = {
-    pharmaceuticals: 0.075,
+    drugs: 0.075,
     food: 0.13,
     electronics: 0.02
   }
 
-  def markup(marked_up_price, type)
+  def markup(price_after_flat_markup, type)
     rate_to_apply = RATES[type].nil? ? 0 : RATES[type]
-    markup = marked_up_price * rate_to_apply
+    markup = price_after_flat_markup * rate_to_apply
   end
 end
