@@ -9,7 +9,7 @@ To run this project, run the following steps:
 1. Clone this repo
 2. Run `bundle`
 3. Open `irb` or a REPL of your choice
-4. `require ./lib/final_price_calculator`
+4. `require './lib/final_price_calculator'`
 5. Instantiate the various markup calculator and then the final price calculator
 
   ```
