@@ -1,3 +1,4 @@
 source "https://rubygems.org"
 
-gem "rpsec"
+ruby "2.2.3"
+gem "rspec"
