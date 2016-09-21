@@ -17,6 +17,7 @@ class FinalPriceCalculator
     people_markup = people_markup(base_price, number_of_people)
     type_markup = type_markup(base_price, type)
     total_cost = price_after_flat_markup + people_markup + type_markup
+    total_cost.round(2)
   end
 
   private
