@@ -13,4 +13,12 @@ describe TypeMarkupCalculator do
       expect(type_markup_calculator.markup(marked_up_price, :cars)).to eq(0)
     end
   end
+
+  context 'allows different product rates to be applied' do
+    subject(:modified_type_markup_calculator) { described_class.new( { food: 0.15 }) }
+    it 'rate of 15% is applied for food instead of default 13%' do
+      marked_up_price = 1050
+      expect(modified_type_markup_calculator.markup(marked_up_price, :food)).to eq 157.5
+    end
+  end
 end
