@@ -9,6 +9,7 @@ class FinalPriceCalculator
   end
 
   def total_cost(base_price, number_of_people, type)
+    raise "Base price must be in numerical format" unless is_number?(base_price)
     price_after_flat_markup = base_price + flat_markup(base_price)
     other_markups = other_markups(base_price, number_of_people, type)
     total_cost = price_after_flat_markup + other_markups
@@ -16,6 +17,10 @@ class FinalPriceCalculator
   end
 
   private
+
+  def is_number?(base_price)
+    base_price.kind_of? Numeric
+  end
 
   def flat_markup(base_price)
     flat_markup_calculator.markup(base_price)
