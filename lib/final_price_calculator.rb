@@ -1,15 +1,11 @@
-require_relative 'flat_markup_calculator'
-require_relative 'people_markup_calculator'
-require_relative 'type_markup_calculator'
-
 class FinalPriceCalculator
 
   attr_reader :flat_markup_calculator, :people_markup_calculator, :type_markup_calculator
 
   def initialize(flat_markup_calculator, people_markup_calculator, type_markup_calculator)
-    @flat_markup_calculator = FlatMarkupCalculator.new
-    @people_markup_calculator = PeopleMarkupCalculator.new
-    @type_markup_calculator = TypeMarkupCalculator.new
+    @flat_markup_calculator = flat_markup_calculator
+    @people_markup_calculator = people_markup_calculator
+    @type_markup_calculator = type_markup_calculator
   end
 
   def total_cost(base_price, number_of_people, type)
