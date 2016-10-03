@@ -9,7 +9,7 @@ class FinalPriceCalculator
   end
 
   def total_cost(base_price, number_of_people, type)
-    price_after_flat_markup = flat_markup(base_price)
+    price_after_flat_markup = base_price + flat_markup(base_price)
     other_markups = other_markups(base_price, number_of_people, type)
     total_cost = price_after_flat_markup + other_markups
     total_cost.round(2)
@@ -18,8 +18,7 @@ class FinalPriceCalculator
   private
 
   def flat_markup(base_price)
-    markup = flat_markup_calculator.markup(base_price)
-    base_price + markup
+    flat_markup_calculator.markup(base_price)
   end
 
   def other_markups(base_price, number_of_people, type)
@@ -27,12 +26,12 @@ class FinalPriceCalculator
   end
 
   def people_markup(base_price, number_of_people)
-    price_after_flat_markup = flat_markup(base_price)
-    people_markup_calculator.markup(price_after_flat_markup, number_of_people)
+    price = base_price + flat_markup(base_price)
+    people_markup_calculator.markup(price, number_of_people)
   end
 
   def type_markup(base_price, type)
-    price_after_flat_markup = flat_markup(base_price)
-    type_markup_calculator.markup(price_after_flat_markup, type)
+    price = base_price + flat_markup(base_price)
+    type_markup_calculator.markup(price, type)
   end
 end

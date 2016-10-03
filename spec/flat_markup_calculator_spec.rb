@@ -8,5 +8,9 @@ describe FlatMarkupCalculator do
       base_price = 1000
       expect(flat_markup_calculator.markup(base_price)).to eq(50)
     end
-  end    
+    it 'raises an error if \'base price\' input variable is not a number' do
+      base_price = "one thousand"
+      expect { flat_markup_calculator.markup(base_price) }.to raise_error "Base price must be a number"
+    end
+  end
 end

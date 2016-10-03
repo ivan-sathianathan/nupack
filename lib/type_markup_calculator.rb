@@ -6,7 +6,7 @@ class TypeMarkupCalculator
   }
 
   def markup(price_after_flat_markup, type)
-    rate_to_apply = RATES[type].nil? ? 0 : RATES[type]
+    rate_to_apply = RATES.fetch(type, 0)
     markup = price_after_flat_markup * rate_to_apply
   end
 end
